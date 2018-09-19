@@ -4,14 +4,12 @@ const stickyNotes = ( state = [], action ) => {
     case 'ADD_STICKY_NOTES':
       return [action.stickyNote, ...state]
        case 'EDIT_STICKY_NOTES':
-       return state.map( sn => {
-         debugger
+       return state.map(sn =>{
          if(sn.id === action.id){
-           sn = action
+           sn.description = action.description
          }
-             
-        return sn
-      })
+         return sn
+       })
       case 'DELETE_STICKY_NOTES':
       return state.filter( t => t.id !== action.id )
     default:

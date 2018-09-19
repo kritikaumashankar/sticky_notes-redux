@@ -2,39 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { incId } from '../actions/nextId'
 import { addStickyNote } from '../actions/stickyNotes'
-import { editStickyNote } from '../actions/stickyNotes'
-let prevId =null
-let prevDesc =null
-class StickyNotesForm extends React.Component {
-  state = { description: '' }
 
-    componentDidUpdate(prevProps, prevState){
-      debugger
-      if(prevProps.sn !== null){
-        prevId = prevProps.id
-        prevDesc = prevState
-       // this.setState({description: prevState})
+class StickyNotesForm extends React.Component {
+  defaultValues = {description: ''}
+  state = {...this.defaultValues}
+
+    componentDidMount(){
+      if(this.props.sn!==null){
+        this.setState({...this.props.sn})
       }
-      
     }
   
   handleSubmit = (e) => {
-    debugger
     e.preventDefault()
     const { dispatch,id } = this.props 
     const { description } = this.state
-    const stickyNote = { description, id }
-     if(this.props.id !==prevId){
-       debugger
+    const stickyNote = { id,description}
+     if(this.props.sn!==null){
+       this.props.submit(description)
+      
+    }else{     
       dispatch(addStickyNote(stickyNote))
       dispatch(incId())
-      
-    }else{
-      debugger
-      dispatch(editStickyNote(stickyNote.id, stickyNote.description))
+      this.setState({...this.defaultValues})
     }
     
-    this.setState({ description: '' })
+    
   }
 
   handleChange = (e) => {
@@ -42,20 +35,13 @@ class StickyNotesForm extends React.Component {
   }
 
   render() {
-    debugger
-    let  description =''
-    if(prevId !== null ){
-        description  = prevDesc
-    }else{
-        description  = this.state.description
-   
-    }
-    console.log(description)
+
+    const { description } = this.state
    
       return (
         <div>
           <form onSubmit={this.handleSubmit}>
-          <h3>Add a sticky note</h3>
+         
             <input name="Description" value={description} onChange={this.handleChange} />
           </form>
         </div>
@@ -64,6 +50,7 @@ class StickyNotesForm extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+
   return {id: state.nextId}
 }
 

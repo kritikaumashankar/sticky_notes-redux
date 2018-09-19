@@ -21,8 +21,14 @@
 .App-intro {
   font-size: large;
 }
-.addStickey:nth-child(n){
-  display: none;
+
+.container{
+  margin: 20px
+}
+
+.place{
+  float: left;
+  margin: 20px;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
