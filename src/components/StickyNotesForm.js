@@ -39,12 +39,10 @@ class StickyNotesForm extends React.Component {
     const { description } = this.state
    
       return (
-        <div>
           <form onSubmit={this.handleSubmit}>
          
             <input name="Description" value={description} onChange={this.handleChange} />
           </form>
-        </div>
       ) 
     }
 }

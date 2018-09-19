@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import StickyNotesForm from './StickyNotesForm';
  import { deleteStickyNote } from '../actions/stickyNotes';
  import { editStickyNote } from '../actions/stickyNotes'
+ import '../App.css'
 
 
  class StickyNote extends React.Component {
@@ -26,9 +27,7 @@ submit =(description) => {
  show = () => {
    const {description} = this.state
   return(
-    <div>
-      {description}
-    </div>
+      <span class="text">{description}</span>
     )
 }
 
@@ -43,8 +42,9 @@ submit =(description) => {
     const {id}= this.props
     const {description}= this.state
     return (
-      <div>
+      <div className="stickey">
         { edit ? this.form(id,description) : this.show() }
+        <br/>
         <button onClick={this.toggleEdit}>
         { edit ? 'Done' : 'Edit' }
         </button>

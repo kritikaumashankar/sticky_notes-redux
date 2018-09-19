@@ -29,6 +29,13 @@
 .place{
   float: left;
   margin: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  background-color: pink;
+}
+.stickey{
+  word-wrap: break-word;
+  width: 300px;
 }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
