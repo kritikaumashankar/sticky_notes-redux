@@ -5,9 +5,9 @@ const stickyNotes = ( state = [], action ) => {
       return [action.stickyNote, ...state]
        case 'EDIT_STICKY_NOTES':
        return state.map( sn => {
+         debugger
          if(sn.id === action.id){
-           sn.description = action.description
-           return sn
+           sn = action
          }
              
         return sn

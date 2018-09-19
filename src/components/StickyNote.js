@@ -19,16 +19,17 @@ class StickyNote extends React.Component{
       </div>
       )
   }
-  form(id){
-    const {descript} = this.props.description
-    return(<StickyNotesForm id={id} {...descript} />)  
+  form(){
+    debugger
+    const sn = this.props
+    return(<StickyNotesForm sn={sn} />)  
   }
   render(){
     const { edit } = this.state
     const {id} = this.props
     return (
       <div>
-        { edit ? this.form(id) : this.show() }
+        { edit ? this.form() : this.show() }
         <button onClick={this.toggleEdit}>
           { edit ? 'Cancel' : 'Edit' }
         </button>

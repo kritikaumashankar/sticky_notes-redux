@@ -4,7 +4,7 @@ import StickyNotesList from './components/StickyNotesList';
 
 const App = () =>(
   <div className="App">
-    <StickyNotesForm />
+    <StickyNotesForm sn={null}/>
     <StickyNotesList />
   </div>
 )
