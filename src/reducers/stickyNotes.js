@@ -11,6 +11,7 @@ const stickyNotes = ( state = [], action ) => {
          return sn
        })
       case 'DELETE_STICKY_NOTES':
+      debugger
       return state.filter( t => t.id !== action.id )
     default:
       return state
