@@ -34,7 +34,6 @@ import StickyNotesForm from './StickyNotesForm';
         </div>
       )
     }else{
-      debugger
       let noteArr = []
         for(let i = 0; i< this.state.numberOfStickey; i++){
             noteArr.push(<div className="place">
@@ -43,11 +42,10 @@ import StickyNotesForm from './StickyNotesForm';
             </div>
             )
         }
-        return(noteArr)
+      return(noteArr)
     }
   } 
   
-
   render(){
     return(
       <div id="container">
@@ -56,9 +54,6 @@ import StickyNotesForm from './StickyNotesForm';
     )
   }
  }
- 
-  
-  
 
 const mapStateToProps = (state) => {
   return { stickyNotes: state.stickyNotes }

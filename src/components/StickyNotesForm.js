@@ -9,8 +9,8 @@ class StickyNotesForm extends React.Component {
   state = {...this.defaultValues}
 
   componentDidMount(){
-    if(this.props.sn!==null)
-    this.setState({description: this.props.description})
+    if(this.props.sn!==null && this.props.sn!==undefined)
+    this.setState({description: this.props.sn.description})
   }
   componentDidUpdate(prevProps, prevState){
     if(this.props.sn!==null && this.props.sn!==prevProps.sn){
